@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+      <defs>
+        <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#12131a" />
+          <stop offset="100%" stop-color="#08080c" />
+        </linearGradient>
+        <radialGradient id="glow" cx="50%" cy="40%" r="50%">
+          <stop offset="0%" stop-color="#d97706" stop-opacity="0.35" />
+          <stop offset="100%" stop-color="#d97706" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+      <rect width="600" height="600" rx="32" fill="url(#g)" stroke="#d97706" stroke-width="4"/>
+      <circle cx="300" cy="240" r="180" fill="url(#glow)"/>
+      <g transform="translate(300, 220)">
+        <circle cx="0" cy="0" r="70" fill="none" stroke="#d97706" stroke-width="8"/>
+        <path d="M-40,0 L40,0 M-25,-25 L25,25 M-25,25 L25,-25" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+      </g>
+      <text x="300" y="380" fill="#ffffff" font-size="28" font-family="system-ui, sans-serif" font-weight="900" text-anchor="middle" letter-spacing="2">SANJIT KUMAR SAHOO</text>
+      <text x="300" y="420" fill="#d97706" font-size="16" font-family="system-ui, sans-serif" font-weight="700" text-anchor="middle" letter-spacing="3">Executive Portrait</text>
+      <text x="300" y="470" fill="#6b7280" font-size="12" font-family="monospace" text-anchor="middle">COMMUNE FITNESS • REX PLAZA 4TH FLOOR KATAKA</text>
+    </svg>

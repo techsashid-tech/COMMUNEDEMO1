@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    transition: background-color 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: var(--font-display);
+  }
+}
+
+/* Custom Gradients & FX */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-shimmer {
+  background: linear-gradient(90deg, #d97706, #fbbf24, #f59e0b, #d97706);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.gold-bg {
+  background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #facc15 100%);
+}
+
+.gold-glow {
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.45);
+}
+
+.gold-glow-subtle {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+}
+
+/* Glassmorphism */
+.dark .card-glass {
+  background: rgba(13, 14, 20, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+}
+
+.card-glass {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(217, 119, 6, 0.18);
+  box-shadow: 0 12px 36px -8px rgba(217, 119, 6, 0.12);
+}
+
+/* Metallic Light Sweep */
+.silver-sweep-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.silver-sweep-container::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%) rotate(25deg);
+  animation: silverLightSweep 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes silverLightSweep {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  25% { transform: translateX(200%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+/* Floating animation */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+
+.animate-float-slow {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+/* 3D Rotating Circular Gallery */
+.circle-gallery-viewport {
+  perspective: 1200px;
+  width: 100%;
+  height: 520px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.circle-gallery-ring {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease-out;
+}
+
+.circle-card {
+  position: absolute;
+  width: 240px;
+  height: 320px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  backface-visibility: visible;
+  border: 2px solid rgba(245, 158, 11, 0.4);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  background: #0f1016;
+  transition: transform 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.circle-card:hover {
+  border-color: #f59e0b;
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.7);
+}
+
+/* Infinite Marquee */
+.marquee-track {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 1.5rem;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-group {
+  flex-shrink: 0;
+  display: flex;
+  gap: 1.5rem;
+  min-width: 100%;
+  animation: scrollMarquee 38s linear infinite;
+}
+
+.marquee-track:hover .marquee-group {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* Pulse Ring */
+@keyframes pulseRing {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 18px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.whatsapp-float-pulse {
+  animation: pulseRing 2.2s infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0b0e;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #d97706, #f59e0b);
+  border-radius: 4px;
+}
